@@ -1,0 +1,121 @@
+# =============================================
+# General Web Development .gitignore
+# =============================================
+
+# Dependencies
+node_modules/
+bower_components/
+jspm_packages/
+vendor/                  # Composer/PHP dependencies (Laravel, etc.)
+*.gem                    # Ruby gems
+
+# Build outputs and compiled files
+/dist/
+/build/
+/out/
+/public/build/
+/.next/                  # Next.js
+/.next/
+.nuxt/                   # Nuxt.js
+/.nuxt/
+.svelte-kit/             # SvelteKit
+/.svelte-kit/
+.angular/                # Angular
+/.angular/
+
+# Environment variables and secrets (NEVER commit these)
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem                    # Private keys
+
+# Logs and runtime data
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Runtime data
+*.sqlite
+*.sqlite3
+*.db
+/data/
+/temp/
+/tmp/
+
+# Caches
+.cache/
+.npm/
+.yarn/cache/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo            # TypeScript cache
+
+# Coverage and testing
+coverage/
+.nyc_output/
+*.lcov
+reports/
+junit.xml
+
+# Editor / IDE files
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+.metadata/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Miscellaneous
+*.bak
+*.orig
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+
+# Package manager locks (sometimes useful to commit, but often ignored in mono-repos)
+# yarn.lock
+# pnpm-lock.yaml
+# package-lock.json   # Uncomment if you want to ignore it
+
+# Docker (optional - uncomment if you don't want to track Docker files)
+# Dockerfile
+# docker-compose*.yml
+# .dockerignore
+
+# Deployment / CI
+.vercel/
+.netlify/
+.serverless/
