@@ -4,8 +4,9 @@ import cors from 'cors'
 import { config } from 'dotenv'
 config({ path: './src/.env' })
 
-import authRoutes from './Routes/auth.route.js'
 import connectDB from './lib/db.js'
+import AUTH_ROUTER from './Routes/auth.route.js'
+import MESSAGE_ROUTER from './Routes/message.route.js'
 
 const app = express()
 const ALLOWED_ORIGINS = ['http://localhost:5173']
@@ -18,7 +19,8 @@ app.use(cors({
     Credential: true
 }))
 
-app.use('/api/auth', authRoutes)
+app.use('/api/auth', AUTH_ROUTER)
+app.use('/api/message', MESSAGE_ROUTER)
 
 app.listen(port, () => {
     console.log(`Server running on port : ${port}`);
