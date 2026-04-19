@@ -1,7 +1,7 @@
-import Features from "../SubPages/Features";
-import Community from "../SubPages/Community";
-import Hero from "../SubPages/Hero";
-import LandingNav from "../SubPages/LandingNav";
+import Features from "../SubPages/For Landing Page/Features";
+import Community from "../SubPages/For Landing Page/Community";
+import Hero from "../SubPages/For Landing Page/Hero";
+import LandingNav from "../SubPages/For Landing Page/LandingNav";
 
 const Landing = () => {
   return (

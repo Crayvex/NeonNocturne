@@ -125,7 +125,7 @@ export const LOGOUT = async (req, res) => {
 
 export const GET_USER = async (req, res) => {
   try {
-    const { username } = req.body;
+    const username = req.body.username || req.query.username;
 
     if (!username)
       return res
@@ -134,17 +134,34 @@ export const GET_USER = async (req, res) => {
 
     const user = await User.findOne({ username });
 
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
+
     res
       .status(200)
       .json({
         message: "User Found",
         user:{
-            username,
-            email,
-            profilePic
+            username: user.username,
+            email: user.email,
+            profilePic: user.profilePic
         }
       });
   } catch (e) {
     return res.json({success: false, message: e.message})
+  }
+};
+
+export const CHECK_AUTH = async (req, res) => {
+  try {
+    const user = req.user;
+
+    if(!user) return res.status(401).json({success: false, message: 'User NOT authorized'})
+    
+    return res.json({success: true, message: 'User Authorized', user})
+  } catch (e) {
+    console.log(e.message);
+    return res.status(500).json({success: false, message: 'Internal server error'})
   }
 };

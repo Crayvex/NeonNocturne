@@ -16,13 +16,17 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(cors({
     origin: ALLOWED_ORIGINS,
-    Credential: true
+    credentials: true
 }))
 
 app.use('/api/auth', AUTH_ROUTER)
 app.use('/api/message', MESSAGE_ROUTER)
 
-app.listen(port, () => {
+app.get('/', (req, res) => {
+    res.send("Hello from Server")
+})
+
+app.listen(port, '0.0.0.0', () => {
     console.log(`Server running on port : ${port}`);
     connectDB();
 })
