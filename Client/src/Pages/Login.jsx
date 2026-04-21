@@ -40,7 +40,7 @@ const Login = () => {
     <section id="Login">
       <div className="heading">
         <Rocket className="text-cyan-300 size-10" />
-        <h1>NEONNOCTURNE</h1>
+        <a href="/">NEONNOCTURNE</a>
         <p>SECURE ACCESS PORTAL</p>
       </div>
       <form onSubmit={handleSubmit}>

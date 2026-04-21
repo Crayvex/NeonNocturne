@@ -1,8 +1,7 @@
-import React from 'react'
 
 const Archive = () => {
   return (
-    <div>Archive</div>
+    <section id='Archive'>Archive</section>
   )
 }
 

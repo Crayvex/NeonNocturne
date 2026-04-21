@@ -110,13 +110,12 @@ export const LOGIN = async (req, res) => {
 // ─── LOGOUT ──────────────────────────────────────────────────────────────────
 export const LOGOUT = async (req, res) => {
   try {
-    res.cookie("jwt", "", {
-      maxAge: 0,
+    res.clearCookie("jwt", {
       httpOnly: true,
-      sameSite: "strict",
-      secure: process.env.NODE_ENV !== "development",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      secure: process.env.NODE_ENV === "production",
     });
-    res.status(200).json({ message: "Logged out successfully" });
+    return res.status(200).json({ message: "User logged out successfully" });
   } catch (error) {
     console.error("Error in logout controller:", error.message);
     res.status(500).json({ error: "Internal server error" });

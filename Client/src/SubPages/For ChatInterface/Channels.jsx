@@ -1,8 +1,7 @@
-import React from 'react'
 
 const Channels = () => {
   return (
-    <div>Channels</div>
+    <section id="Channels">Channels</section>
   )
 }
 

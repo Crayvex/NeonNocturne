@@ -51,6 +51,15 @@ const USER_STORE = create((set, get) => ({
             set({ isCheckingAuth: false })
         }
     },
+    logout: async () => {
+        try {
+            await axiosInstance.post('/auth/logout')
+            set({ user : null })
+            toast.success('Logged Out')
+        } catch (e) {
+            toast.error(e?.message || 'LogOut Failed')
+        }
+    }
 }))
 
 export default USER_STORE;
